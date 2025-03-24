@@ -1,0 +1,13 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: kitchen-service
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*" #<2>
+  endpoint:
+    health:
+      show-details: ALWAYS
