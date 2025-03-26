@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>ru.liga</groupId>
-        <artifactId>restaurant</artifactId>
+        <artifactId>dependencies-bom</artifactId>
         <version>0.0.1-SHAPSHOT</version>
         <relativePath>../dependencies-bom/pom.xml</relativePath>
     </parent>
@@ -13,7 +13,6 @@
     <version>0.0.1-SHAPSHOT</version>
     <name>kitchen-service</name>
     <description>kitchen-service</description>
-
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
