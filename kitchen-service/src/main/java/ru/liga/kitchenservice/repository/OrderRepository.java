@@ -16,8 +16,9 @@ public class OrderRepository {
         this.id = 1L;
     }
 
-    public KitchenDto addOrder(KitchenDto kitchenDto) {
-        return map.put(this.id++, kitchenDto);
+    public Long addOrder(KitchenDto kitchenDto) {
+        map.put(this.id, kitchenDto);
+        return id++;
     }
 
     public KitchenDto updateOrder(Long id, KitchenDto kitchenDto) {

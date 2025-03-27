@@ -25,14 +25,12 @@ public class OrderController {
     }
 
     @PostMapping
-    public String addOrder(@RequestBody OrderDto orderDto) {
-        orderService.addOrder(orderDto);
-         return "Заказ " + orderDto + " добавлен.";
+    public Long addOrder(@RequestBody OrderDto orderDto) {
+        return orderService.addOrder(orderDto);
     }
 
     @GetMapping("/status/{id}")
     public Status getStatus(@PathVariable Long id) {
         return orderService.getStatus(id);
     }
-
 }

@@ -13,28 +13,40 @@ import java.util.Map;
 public class OrderService {
     private final OrderRepository orderRepository;
 
+    /**
+     * Получить все заказы
+     */
     public Map<Long, KitchenDto> getOrders() {
-        if (orderRepository.getOrders().isEmpty()) {
-            throw new NullPointerException("В базе данных нет заказов.");
-        }
         return orderRepository.getOrders();
     }
 
-    public KitchenDto addOrder(KitchenDto kitchenDto) {
+    /**
+     * Добавить заказ
+     * @Return id заказа
+     */
+    public Long addOrder(KitchenDto kitchenDto) {
         return orderRepository.addOrder(kitchenDto);
     }
 
+    /**
+     * Обновить статус заказа
+     *
+     * @Params id идентификатор заказа
+     * @Params обновленный статус
+     *
+     * @throws IllegalArgumentException в случае, если полученный status отсутствует в enum
+     */
     public KitchenDto updateOrderStatus(Long id, String status) {
         try {
-            Status status1 = Status.valueOf(status);
+            Status currentStatus = Status.valueOf(status);
             KitchenDto kitchenDto = orderRepository.getOrder(id);
             if (kitchenDto == null) {
                 throw new NullPointerException("Заказ с id '" + id + "' отсутствует.");
             }
-            kitchenDto.setStatus(status1);
+            kitchenDto.setStatus(currentStatus);
             return orderRepository.updateOrder(id, kitchenDto);
         } catch (IllegalArgumentException e) {
-            throw new IllegalArgumentException("Статус '" + status + "' отсутствует. (см. dto.enums.Status)");
+            throw new IllegalArgumentException("Статус '" + status + "' отсутствует.");
         }
     }
 }

@@ -10,12 +10,12 @@ import java.util.Map;
 @Repository
 public class OrderRepository {
     private Map<Long, OrderDto> map;
-    private Long index;
+    private Long id;
 
     // Временное решение, в ходе последующих ДЗ будет заменено на БД
     public OrderRepository() {
         this.map = new HashMap<>();
-        this.index = 1L;
+        this.id = 1L;
     }
 
     public Map<Long, OrderDto> getOrders() {
@@ -26,8 +26,9 @@ public class OrderRepository {
         return map.get(id);
     }
 
-    public OrderDto addOrder(OrderDto orderDto) {
-        return map.put(index++, orderDto);
+    public Long addOrder(OrderDto orderDto) {
+        map.put(id, orderDto);
+        return id++;
     }
 
     public Status getStatus(Long id) {

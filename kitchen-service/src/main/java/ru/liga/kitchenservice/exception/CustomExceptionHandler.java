@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 public class CustomExceptionHandler {
 
     @ExceptionHandler(value = {NullPointerException.class, IllegalArgumentException.class})
-    public ResponseEntity<Object> handleNullPointerException(RuntimeException exc) {
+    public ResponseEntity<Object> handleRuntimeException(RuntimeException exc) {
         return new ResponseEntity<>(exc.getMessage(), HttpStatus.NOT_FOUND);
     }
 }

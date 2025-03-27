@@ -19,17 +19,13 @@ public class OrderController {
     }
 
     @PostMapping
-    public String addOrder(@RequestBody KitchenDto kitchenDto) {
-        orderService.addOrder(kitchenDto);
-        return "Заказ " + kitchenDto + " добавлен.";
+    public Long addOrder(@RequestBody KitchenDto kitchenDto) {
+        return orderService.addOrder(kitchenDto);
     }
 
     @PatchMapping("/{id}/{status}")
     public String updateOrderStatus(@PathVariable Long id, @PathVariable String status) {
         orderService.updateOrderStatus(id, status);
         return "Статус обновлен на: " + status;
-
     }
-
-
 }
