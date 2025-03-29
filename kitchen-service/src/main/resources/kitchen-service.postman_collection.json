@@ -1,0 +1,111 @@
+{
+	"info": {
+		"_postman_id": "0f1a5584-325e-4434-9f5a-0a2b0c14633b",
+		"name": "kitchen-service",
+		"description": "Коллекция для тестирования базовых endpoints в kitchen-service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "42532604"
+	},
+	"item": [
+		{
+			"name": "Получить все заказы",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8081/order",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"order"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Добавить заказ",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"orderId\": 1,\r\n    \"ingredients\": [\"Лук\", \"Тесто\", \"Сыр Моцарелла\", \"Помидор\"]\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8081/order",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"order"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Принять заказ",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "localhost:8081/order/1/APPROVED",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"order",
+						"1",
+						"APPROVED"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Отменить заказ",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "localhost:8081/order/1/REJECTED",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"order",
+						"1",
+						"REJECTED"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Заказ готов",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}
