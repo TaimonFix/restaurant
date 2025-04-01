@@ -1,5 +1,24 @@
 -- create schema kitchen;
-create table my_table (
-    id bigint,
-    name varchar
+CREATE TABLE kitchen_order (
+    kitchen_order_id BIGINT PRIMARY KEY,
+    waiter_order_no BIGINT NOT NULL,
+    status VARCHAR NOT NULL,
+    create_dttm TIMESTAMP WITH TIME ZONE NOT NULL
 );
+
+CREATE TABLE dish (
+    dish_id BIGINT PRIMARY KEY,
+    balance BIGINT NOT NULL,
+    short_name VARCHAR NOT NULL,
+    dish_composition VARCHAR NOT NULL
+);
+
+CREATE TABLE order_to_dish (
+    kitchen_order_id BIGINT,
+    dish_id BIGINT,
+    dishes_number BIGINT NOT NULL,
+    PRIMARY KEY (kitchen_order_id, dish_id),
+    FOREIGN KEY (kitchen_order_id) REFERENCES kitchen_order(kitchen_order_id),
+    FOREIGN KEY (dish_id) REFERENCES dish(dish_id)
+);
+
