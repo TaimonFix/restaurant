@@ -76,7 +76,6 @@
                     <changeLogFile>src/main/resources/db/master.xml</changeLogFile>
                 </configuration>
             </plugin>
-
         </plugins>
     </build>
 </project>
