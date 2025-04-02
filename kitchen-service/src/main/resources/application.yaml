@@ -3,6 +3,15 @@ server:
 spring:
   application:
     name: kitchen-service
+  datasource:
+    url: jdbc:postgresql://localhost:5437/kitchen-service
+    driver-class-name: org.postgresql.Driver
+    username: test
+    password: test
+  liquibase:
+    enabled: true
+    change-log: classpath:/db/changelog/changelog-master.xml
+    default-schema: public
 management:
   endpoints:
     web:
