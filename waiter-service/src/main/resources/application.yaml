@@ -3,6 +3,15 @@ server:
 spring:
   application:
     name: waiter-service
+  datasource:
+    url: jdbc:postgresql://localhost:5438/waiter-service
+    driver-class-name: org.postgresql.Driver
+    username: test
+    password: test
+  liquibase:
+    enabled: true
+    change-log: classpath:/db/changelog/changelog-master.xml
+    default-schema: public
 management:
   endpoints:
     web:
