@@ -1,4 +1,4 @@
-package ru.liga.kitchenservice.dto.enums;
+package ru.liga.kitchenservice.model.dto.enums;
 
 /**
  * Статус заказа

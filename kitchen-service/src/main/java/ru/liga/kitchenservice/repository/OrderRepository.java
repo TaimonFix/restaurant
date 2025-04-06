@@ -1,14 +1,14 @@
 package ru.liga.kitchenservice.repository;
 
 import org.springframework.stereotype.Repository;
-import ru.liga.kitchenservice.dto.KitchenDto;
+import ru.liga.kitchenservice.model.dto.KitchenOrderDto;
 
 import java.util.HashMap;
 import java.util.Map;
 
 @Repository
 public class OrderRepository {
-    private Map<Long, KitchenDto> map;
+    private Map<Long, KitchenOrderDto> map;
     private Long id;
 
     public OrderRepository() {
@@ -16,20 +16,20 @@ public class OrderRepository {
         this.id = 1L;
     }
 
-    public Long addOrder(KitchenDto kitchenDto) {
+    public Long addOrder(KitchenOrderDto kitchenDto) {
         map.put(this.id, kitchenDto);
         return id++;
     }
 
-    public KitchenDto updateOrder(Long id, KitchenDto kitchenDto) {
+    public KitchenOrderDto updateOrder(Long id, KitchenOrderDto kitchenDto) {
         return map.put(id, kitchenDto);
     }
 
-    public Map<Long, KitchenDto> getOrders() {
+    public Map<Long, KitchenOrderDto> getOrders() {
         return map;
     }
 
-    public KitchenDto getOrder(Long id) {
+    public KitchenOrderDto getOrder(Long id) {
         return map.get(id);
     }
 }

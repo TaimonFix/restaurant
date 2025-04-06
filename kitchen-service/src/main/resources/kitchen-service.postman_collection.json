@@ -32,7 +32,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"orderId\": 1,\r\n    \"ingredients\": [\"Лук\", \"Тесто\", \"Сыр Моцарелла\", \"Помидор\"]\r\n\r\n}",
+					"raw": "{\r\n    \"waiterOrderNo\": 1,\r\n    \"createDttm\": \"2023-06-30T14:30+05:00\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -85,14 +85,14 @@
 				"method": "PATCH",
 				"header": [],
 				"url": {
-					"raw": "localhost:8081/order/1/REJECTED",
+					"raw": "localhost:8081/order/2/REJECTED",
 					"host": [
 						"localhost"
 					],
 					"port": "8081",
 					"path": [
 						"order",
-						"1",
+						"2",
 						"REJECTED"
 					]
 				}
@@ -102,8 +102,20 @@
 		{
 			"name": "Заказ готов",
 			"request": {
-				"method": "GET",
-				"header": []
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "localhost:8081/order/3/READY",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"order",
+						"3",
+						"READY"
+					]
+				}
 			},
 			"response": []
 		}
