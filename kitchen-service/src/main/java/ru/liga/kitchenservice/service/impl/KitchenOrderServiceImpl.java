@@ -8,6 +8,8 @@ import ru.liga.kitchenservice.model.dto.enums.Status;
 import ru.liga.kitchenservice.model.entity.KitchenOrder;
 import ru.liga.kitchenservice.repository.KitchenOrderRepository;
 import ru.liga.kitchenservice.service.KitchenOrderService;
+
+import java.time.OffsetDateTime;
 import java.util.List;
 
 @Service
@@ -24,6 +26,12 @@ public class KitchenOrderServiceImpl implements KitchenOrderService {
 
     @Override
     public Long addOrder(KitchenOrderDto kitchenDto) {
+        if (kitchenDto.getStatus() == null) {
+            kitchenDto.setStatus(Status.NEW);
+        }
+        if (kitchenDto.getCreateDttm() == null) {
+            kitchenDto.setCreateDttm(OffsetDateTime.now());
+        }
         KitchenOrder order = kitchenOrderMapper.toEntity(kitchenDto);
         System.out.println(order.toString());
         return kitchenOrderRepository.save(order).getId();

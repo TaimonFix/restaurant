@@ -3,10 +3,41 @@
 <mapper namespace="ru.liga.waiterservice.mapper.WaiterOrderMapper">
 
     <resultMap id="WaiterOrderDto" type="ru.liga.waiterservice.model.dto.WaiterOrderDto" autoMapping="true">
+        <result column="order_no" property="orderNo"/>
+        <result column="status" property="status"/>
+        <result column="create_dttm" property="createDttm"/>
+        <result column="waiter_id" property="waiterId"/>
+        <result column="table_no" property="tableNo"/>
     </resultMap>
 
     <select id="getOrders" resultMap="WaiterOrderDto">
         SELECT order_no, status, create_dttm, waiter_id, table_no
         FROM waiter_order
     </select>
+
+    <select id="getOrder" resultMap="WaiterOrderDto">
+        SELECT order_no, status, create_dttm, waiter_id, table_no
+        FROM waiter_order
+        WHERE order_no = #{id, jdbcType=BIGINT}
+    </select>
+    
+    <insert id="addOrder" useGeneratedKeys="true" keyColumn="order_no" keyProperty="orderNo">
+            INSERT INTO waiter_order (status, create_dttm, waiter_id, table_no)
+            VALUES (
+                    #{order.status},
+                    #{order.createDttm},
+                    #{order.waiterId},
+                    #{order.tableNo}
+                   )
+    </insert>
+
+    <resultMap id="Status" type="ru.liga.waiterservice.model.dto.enums.Status" autoMapping="true">
+        <result column="status" property="status"/>
+    </resultMap>
+    <select id="getStatus" resultMap="Status">
+        SELECT status
+        FROM waiter_order
+        WHERE order_no = #{id, jdbcType=BIGINT}
+    </select>
+
 </mapper>

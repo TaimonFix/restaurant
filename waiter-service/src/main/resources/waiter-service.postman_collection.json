@@ -1,100 +1,48 @@
 {
 	"info": {
-		"_postman_id": "05822cb4-ab16-4186-9147-e7af9e3649e9",
-		"name": "waiter-service",
-		"description": "Коллекция для тестирования базовых endpoints в waiter-service",
+		"_postman_id": "6be3555b-507f-4a3f-b5aa-62c097130158",
+		"name": "project_t1",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "42532604"
 	},
 	"item": [
 		{
-			"name": "Добавить заказ",
+			"name": "create",
 			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n \"orderDate\": \"2025-03-26T13:52\",\r\n \"description\": \"Пицца Маргарита\",\r\n \"price\": \"550\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "localhost:8082/order",
-					"host": [
-						"localhost"
-					],
-					"port": "8082",
-					"path": [
-						"order"
-					],
-					"query": [
-						{
-							"key": "",
-							"value": null,
-							"disabled": true
-						}
-					]
-				}
+				"method": "GET",
+				"header": []
 			},
 			"response": []
 		},
 		{
-			"name": "Получить заказ по id",
+			"name": "getTask",
 			"request": {
 				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "localhost:8082/order/1",
-					"host": [
-						"localhost"
-					],
-					"port": "8082",
-					"path": [
-						"order",
-						"1"
-					]
-				}
+				"header": []
 			},
 			"response": []
 		},
 		{
-			"name": "Получить все заказы",
+			"name": "updateTask",
 			"request": {
 				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "localhost:8082/order",
-					"host": [
-						"localhost"
-					],
-					"port": "8082",
-					"path": [
-						"order"
-					]
-				}
+				"header": []
 			},
 			"response": []
 		},
 		{
-			"name": "Получить статус заказа",
+			"name": "deleteTask",
 			"request": {
 				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "localhost:8082/order/status/1",
-					"host": [
-						"localhost"
-					],
-					"port": "8082",
-					"path": [
-						"order",
-						"status",
-						"1"
-					]
-				}
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "getTasks",
+			"request": {
+				"method": "GET",
+				"header": []
 			},
 			"response": []
 		}

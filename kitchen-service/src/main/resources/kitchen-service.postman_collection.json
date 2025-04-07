@@ -32,7 +32,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"waiterOrderNo\": 1,\r\n    \"createDttm\": \"2023-06-30T14:30+05:00\"\r\n}",
+					"raw": "{\r\n    \"waiterOrderNo\": 1\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"

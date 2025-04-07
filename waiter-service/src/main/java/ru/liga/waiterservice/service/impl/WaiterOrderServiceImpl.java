@@ -7,6 +7,7 @@ import ru.liga.waiterservice.model.dto.enums.Status;
 import ru.liga.waiterservice.mapper.WaiterOrderMapper;
 import ru.liga.waiterservice.service.WaiterOrderService;
 
+import java.time.OffsetDateTime;
 import java.util.List;
 
 @Service
@@ -26,7 +27,14 @@ public class WaiterOrderServiceImpl implements WaiterOrderService {
     }
 
     public Long addOrder(WaiterOrderDto orderDto) {
-        return waiterOrderMapper.addOrder(orderDto);
+        if (orderDto.getStatus() == null) {
+            orderDto.setStatus(Status.NEW);
+        }
+        if (orderDto.getCreateDttm() == null) {
+            orderDto.setCreateDttm(OffsetDateTime.now());
+        }
+        waiterOrderMapper.addOrder(orderDto);
+        return orderDto.getOrderNo();
     }
 
     public Status getStatus(Long id) {
