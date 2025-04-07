@@ -15,12 +15,4 @@ public class WaiterOrderDto {
     private Long waiterId;
     private String tableNo;
 
-    // При получении заказ будет иметь статус "Новый"
-    public WaiterOrderDto(OffsetDateTime createDttm,
-                          Long waiterId, String tableNo) {
-        this.status = Status.NEW;
-        this.createDttm = createDttm;
-        this.waiterId = waiterId;
-        this.tableNo = tableNo;
-    }
 }
