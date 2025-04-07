@@ -1,4 +1,4 @@
-package ru.liga.waiterservice.dto.enums;
+package ru.liga.waiterservice.model.dto.enums;
 
 /**
  * Статус заказа

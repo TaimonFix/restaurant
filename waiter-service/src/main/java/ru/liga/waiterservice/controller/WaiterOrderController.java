@@ -2,30 +2,29 @@ package ru.liga.waiterservice.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
-import ru.liga.waiterservice.dto.OrderDto;
-import ru.liga.waiterservice.dto.enums.Status;
-import ru.liga.waiterservice.service.OrderService;
-
-import java.util.Map;
+import ru.liga.waiterservice.model.dto.WaiterOrderDto;
+import ru.liga.waiterservice.model.dto.enums.Status;
+import ru.liga.waiterservice.service.WaiterOrderService;
+import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/order")
-public class OrderController {
-    private final OrderService orderService;
+public class WaiterOrderController {
+    private final WaiterOrderService orderService;
 
     @GetMapping
-    public Map<Long, OrderDto> getOrders() {
+    public List<WaiterOrderDto> getOrders() {
         return orderService.getOrders();
     }
 
     @GetMapping("/{id}")
-    public OrderDto getOrder(@PathVariable Long id) {
+    public WaiterOrderDto getOrder(@PathVariable Long id) {
         return orderService.getOrder(id);
     }
 
     @PostMapping
-    public Long addOrder(@RequestBody OrderDto orderDto) {
+    public Long addOrder(@RequestBody WaiterOrderDto orderDto) {
         return orderService.addOrder(orderDto);
     }
 

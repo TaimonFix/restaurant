@@ -1,15 +1,15 @@
 package ru.liga.waiterservice.repository;
 
 import org.springframework.stereotype.Repository;
-import ru.liga.waiterservice.dto.OrderDto;
-import ru.liga.waiterservice.dto.enums.Status;
+import ru.liga.waiterservice.model.dto.WaiterOrderDto;
+import ru.liga.waiterservice.model.dto.enums.Status;
 
 import java.util.HashMap;
 import java.util.Map;
 
 @Repository
 public class OrderRepository {
-    private Map<Long, OrderDto> map;
+    private Map<Long, WaiterOrderDto> map;
     private Long id;
 
     // Временное решение, в ходе последующих ДЗ будет заменено на БД
@@ -18,15 +18,15 @@ public class OrderRepository {
         this.id = 1L;
     }
 
-    public Map<Long, OrderDto> getOrders() {
+    public Map<Long, WaiterOrderDto> getOrders() {
         return map;
     }
 
-    public OrderDto getOrder(Long id) {
+    public WaiterOrderDto getOrder(Long id) {
         return map.get(id);
     }
 
-    public Long addOrder(OrderDto orderDto) {
+    public Long addOrder(WaiterOrderDto orderDto) {
         map.put(id, orderDto);
         return id++;
     }
