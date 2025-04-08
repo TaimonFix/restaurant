@@ -9,14 +9,9 @@ import java.time.OffsetDateTime;
 public class KitchenOrderDto {
     private Long kitchenOrderId;
     private Long waiterOrderNo;
-    private Status status;
+    private Status status = Status.NEW;
     private OffsetDateTime createDttm;
 
-    // При поступлении на кухню, заказ будет иметь статус "Новый"
-    public KitchenOrderDto(Long waiterOrderNo, OffsetDateTime createDttm) {
-        this.waiterOrderNo = waiterOrderNo;
-        this.status = Status.NEW;
-        this.createDttm = createDttm;
-    }
+
 
 }

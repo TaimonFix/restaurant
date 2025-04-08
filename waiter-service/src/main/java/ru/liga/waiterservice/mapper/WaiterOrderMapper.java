@@ -1,22 +1,22 @@
 package ru.liga.waiterservice.mapper;
 
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
-import org.springframework.stereotype.Repository;
+import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 import ru.liga.waiterservice.model.dto.WaiterOrderDto;
-import ru.liga.waiterservice.model.dto.enums.Status;
+import ru.liga.waiterservice.model.entity.WaiterOrder;
 
 import java.util.List;
 
-@Mapper
-@Repository
+@Mapper(componentModel = "spring")
 public interface WaiterOrderMapper {
 
-    List<WaiterOrderDto> getOrders();
+    @Mapping(target = "orderNo", source = "orderNo")
+    WaiterOrderDto toDto(WaiterOrder waiterOrder);
 
-    WaiterOrderDto getOrder(@Param("id") Long id);
+    @Mapping(target = "orderNo", source = "orderNo")
+    WaiterOrder toEntity(WaiterOrderDto waiterOrderdto);
 
-    void addOrder(@Param("order") WaiterOrderDto order);
+    List<WaiterOrderDto> toDtoList(List<WaiterOrder> kitchenOrders);
 
-    Status getStatus(@Param("id") Long id);
+
 }

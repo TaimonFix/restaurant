@@ -2,9 +2,11 @@ package ru.liga.waiterservice.service.impl;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import ru.liga.waiterservice.mapper.WaiterOrderMapper;
 import ru.liga.waiterservice.model.dto.WaiterOrderDto;
 import ru.liga.waiterservice.model.dto.enums.Status;
-import ru.liga.waiterservice.mapper.WaiterOrderMapper;
+import ru.liga.waiterservice.model.entity.WaiterOrder;
+import ru.liga.waiterservice.repository.WaiterOrderRepository;
 import ru.liga.waiterservice.service.WaiterOrderService;
 
 import java.time.OffsetDateTime;
@@ -13,17 +15,18 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class WaiterOrderServiceImpl implements WaiterOrderService {
+    private final WaiterOrderRepository waiterOrderRepository;
     private final WaiterOrderMapper waiterOrderMapper;
 
     public List<WaiterOrderDto> getOrders() {
-        return waiterOrderMapper.getOrders();
+        return waiterOrderMapper.toDtoList(waiterOrderRepository.getOrders());
     }
 
     public WaiterOrderDto getOrder(Long id) {
-        if (waiterOrderMapper.getOrder(id) == null) {
+        if (waiterOrderRepository.getOrder(id) == null) {
             throw new NullPointerException("Заказ с id '" + id + "' отсутствует.");
         }
-        return waiterOrderMapper.getOrder(id);
+        return waiterOrderMapper.toDto(waiterOrderRepository.getOrder(id));
     }
 
     public Long addOrder(WaiterOrderDto orderDto) {
@@ -33,14 +36,15 @@ public class WaiterOrderServiceImpl implements WaiterOrderService {
         if (orderDto.getCreateDttm() == null) {
             orderDto.setCreateDttm(OffsetDateTime.now());
         }
-        waiterOrderMapper.addOrder(orderDto);
-        return orderDto.getOrderNo();
+        WaiterOrder order = waiterOrderMapper.toEntity(orderDto);
+        waiterOrderRepository.addOrder(order);
+        return order.getOrderNo();
     }
 
     public Status getStatus(Long id) {
-        if (waiterOrderMapper.getOrder(id) == null) {
+        if (waiterOrderRepository.getOrder(id) == null) {
             throw new NullPointerException("Заказ с id '" + id + "' отсутствует.");
         }
-        return waiterOrderMapper.getStatus(id);
+        return waiterOrderRepository.getStatus(id);
     }
 }

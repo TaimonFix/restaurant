@@ -12,10 +12,10 @@ public interface KitchenOrderService {
     List<KitchenOrderDto> getOrders();
 
     /**
-     * Добавить заказ
+     * Сохранить заказ в БД
      * @Return id заказа
      */
-    Long addOrder(KitchenOrderDto kitchenDto);
+    Long saveOrder(KitchenOrderDto kitchenDto);
 
     /**
      * Обновить статус заказа

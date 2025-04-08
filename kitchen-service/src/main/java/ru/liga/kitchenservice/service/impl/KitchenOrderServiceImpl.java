@@ -8,9 +8,9 @@ import ru.liga.kitchenservice.model.dto.enums.Status;
 import ru.liga.kitchenservice.model.entity.KitchenOrder;
 import ru.liga.kitchenservice.repository.KitchenOrderRepository;
 import ru.liga.kitchenservice.service.KitchenOrderService;
-
 import java.time.OffsetDateTime;
 import java.util.List;
+
 
 @Service
 @RequiredArgsConstructor
@@ -25,10 +25,11 @@ public class KitchenOrderServiceImpl implements KitchenOrderService {
     }
 
     @Override
-    public Long addOrder(KitchenOrderDto kitchenDto) {
-        if (kitchenDto.getStatus() == null) {
-            kitchenDto.setStatus(Status.NEW);
+    public Long saveOrder(KitchenOrderDto kitchenDto) {
+        if (kitchenDto == null) {
+            throw new NullPointerException("Введите данные о заказе!");
         }
+
         if (kitchenDto.getCreateDttm() == null) {
             kitchenDto.setCreateDttm(OffsetDateTime.now());
         }
@@ -44,9 +45,9 @@ public class KitchenOrderServiceImpl implements KitchenOrderService {
     @Override
     public KitchenOrderDto updateOrderStatus(Long id, String status) {
         try {
-            String currentStatus = String.valueOf(Status.valueOf(status));
             KitchenOrder kitchenOrder = kitchenOrderRepository.findById(id)
                     .orElseThrow(() -> new NullPointerException("Заказ с id '" + id + "' отсутствует."));
+            String currentStatus = String.valueOf(Status.getStatusFromString(status));
             kitchenOrder.setStatus(currentStatus);
             return kitchenOrderMapper.toDto(kitchenOrderRepository.save(kitchenOrder));
         } catch (IllegalArgumentException e) {

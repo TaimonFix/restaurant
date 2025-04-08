@@ -5,6 +5,7 @@ import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import ru.liga.kitchenservice.model.dto.enums.Status;
 
 import java.time.OffsetDateTime;
 

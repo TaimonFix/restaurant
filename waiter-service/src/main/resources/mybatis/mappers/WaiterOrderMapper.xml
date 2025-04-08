@@ -1,21 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="ru.liga.waiterservice.mapper.WaiterOrderMapper">
+<mapper namespace="ru.liga.waiterservice.repository.WaiterOrderRepository">
 
-    <resultMap id="WaiterOrderDto" type="ru.liga.waiterservice.model.dto.WaiterOrderDto" autoMapping="true">
-        <result column="order_no" property="orderNo"/>
-        <result column="status" property="status"/>
-        <result column="create_dttm" property="createDttm"/>
-        <result column="waiter_id" property="waiterId"/>
-        <result column="table_no" property="tableNo"/>
+    <resultMap id="WaiterOrder" type="ru.liga.waiterservice.model.entity.WaiterOrder" autoMapping="true">
     </resultMap>
 
-    <select id="getOrders" resultMap="WaiterOrderDto">
+    <select id="getOrders" resultMap="WaiterOrder">
         SELECT order_no, status, create_dttm, waiter_id, table_no
         FROM waiter_order
     </select>
 
-    <select id="getOrder" resultMap="WaiterOrderDto">
+    <select id="getOrder" resultMap="WaiterOrder">
         SELECT order_no, status, create_dttm, waiter_id, table_no
         FROM waiter_order
         WHERE order_no = #{id, jdbcType=BIGINT}
@@ -24,10 +19,10 @@
     <insert id="addOrder" useGeneratedKeys="true" keyColumn="order_no" keyProperty="orderNo">
             INSERT INTO waiter_order (status, create_dttm, waiter_id, table_no)
             VALUES (
-                    #{order.status},
-                    #{order.createDttm},
-                    #{order.waiterId},
-                    #{order.tableNo}
+                    #{status},
+                    #{createDttm},
+                    #{waiterId},
+                    #{tableNo}
                    )
     </insert>
 

@@ -1,15 +1,13 @@
-package ru.liga.waiterservice.model.dto;
+package ru.liga.waiterservice.model.entity;
 
-import lombok.Builder;
+
 import lombok.Data;
 import ru.liga.waiterservice.model.dto.enums.Status;
+
 import java.time.OffsetDateTime;
 
-/**
- * DTO для хранения заказа, поступившего от клиента
- */
 @Data
-public class WaiterOrderDto {
+public class WaiterOrder {
     private Long orderNo;
     private Status status;
     private OffsetDateTime createDttm;

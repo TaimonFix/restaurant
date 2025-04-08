@@ -19,8 +19,8 @@ public class KitchenOrderController {
     }
 
     @PostMapping
-    public Long addOrder(@RequestBody KitchenOrderDto kitchenDto) {
-        return kitchenOrderService.addOrder(kitchenDto);
+    public Long saveOrder(@RequestBody KitchenOrderDto kitchenDto) {
+        return kitchenOrderService.saveOrder(kitchenDto);
     }
 
     @PatchMapping("/{id}/{status}")
