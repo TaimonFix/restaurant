@@ -3,7 +3,7 @@ package ru.liga.waiterservice.repository;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
-import ru.liga.waiterservice.model.dto.enums.Status;
+import ru.liga.waiterservice.model.dto.enums.OrderStatus;
 import ru.liga.waiterservice.model.entity.WaiterOrderEntity;
 
 import java.util.List;
@@ -18,5 +18,5 @@ public interface WaiterOrderRepository {
 
     void addOrder(WaiterOrderEntity order);
 
-    Status getStatus(@Param("id") Long id);
+    OrderStatus getStatus(@Param("id") Long id);
 }

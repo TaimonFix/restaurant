@@ -3,7 +3,7 @@ package ru.liga.waiterservice.controller;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import ru.liga.waiterservice.model.dto.WaiterOrderDto;
-import ru.liga.waiterservice.model.dto.enums.Status;
+import ru.liga.waiterservice.model.dto.enums.OrderStatus;
 import ru.liga.waiterservice.service.WaiterOrderService;
 import java.util.List;
 
@@ -25,11 +25,11 @@ public class WaiterOrderController {
 
     @PostMapping
     public Long addOrder(@RequestBody WaiterOrderDto orderDto) {
-        return orderService.addOrder(orderDto);
+        return orderService.saveOrder(orderDto);
     }
 
     @GetMapping("/status/{id}")
-    public Status getStatus(@PathVariable Long id) {
-        return orderService.getStatus(id);
+    public OrderStatus getStatus(@PathVariable Long id) {
+        return orderService.getOrderStatus(id);
     }
 }

@@ -4,7 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import ru.liga.waiterservice.mapper.WaiterOrderMapper;
 import ru.liga.waiterservice.model.dto.WaiterOrderDto;
-import ru.liga.waiterservice.model.dto.enums.Status;
+import ru.liga.waiterservice.model.dto.enums.OrderStatus;
 import ru.liga.waiterservice.model.entity.WaiterOrderEntity;
 import ru.liga.waiterservice.repository.WaiterOrderRepository;
 import ru.liga.waiterservice.service.WaiterOrderService;
@@ -29,9 +29,9 @@ public class WaiterOrderServiceImpl implements WaiterOrderService {
         return waiterOrderMapper.toDto(waiterOrderRepository.getOrder(id));
     }
 
-    public Long addOrder(WaiterOrderDto orderDto) {
+    public Long saveOrder(WaiterOrderDto orderDto) {
         if (orderDto.getStatus() == null) {
-            orderDto.setStatus(Status.NEW);
+            orderDto.setStatus(OrderStatus.NEW);
         }
         if (orderDto.getCreateDttm() == null) {
             orderDto.setCreateDttm(OffsetDateTime.now());
@@ -41,7 +41,7 @@ public class WaiterOrderServiceImpl implements WaiterOrderService {
         return order.getOrderNo();
     }
 
-    public Status getStatus(Long id) {
+    public OrderStatus getOrderStatus(Long id) {
         if (waiterOrderRepository.getOrder(id) == null) {
             throw new NullPointerException("Заказ с id '" + id + "' отсутствует.");
         }

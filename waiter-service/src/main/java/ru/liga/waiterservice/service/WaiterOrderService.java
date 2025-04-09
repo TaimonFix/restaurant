@@ -1,7 +1,7 @@
 package ru.liga.waiterservice.service;
 
 import ru.liga.waiterservice.model.dto.WaiterOrderDto;
-import ru.liga.waiterservice.model.dto.enums.Status;
+import ru.liga.waiterservice.model.dto.enums.OrderStatus;
 
 import java.util.List;
 
@@ -21,12 +21,12 @@ public interface WaiterOrderService {
     /**
      * Добавить заказ
      */
-    Long addOrder(WaiterOrderDto orderDto);
+    Long saveOrder(WaiterOrderDto orderDto);
 
     /**
      * Получить статус заказа
      *
      * @param id идентификатор заказа
      */
-    Status getStatus(Long id);
+    OrderStatus getOrderStatus(Long id);
 }
