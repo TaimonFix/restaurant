@@ -7,5 +7,15 @@ public enum Status {
     NEW, // новый
     APPROVED, // принят
     REJECTED, // отклонен
-    READY // готов
+    READY; // готов
+
+    public static Status getStatusFromString(String status) {
+        for (Status currentStatus: Status.values()) {
+            if (currentStatus.toString().equals(status)) {
+                return currentStatus;
+            }
+        }
+        throw new IllegalArgumentException("Статус '"+ status + "' отсутствует.");
+
+    }
 }
