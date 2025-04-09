@@ -20,5 +20,7 @@ public interface WaiterOrderMapper {
     List<WaiterOrderDto> toDtoList(List<WaiterOrderEntity> kitchenOrders);
 
     @Mapping(target = "waiterOrderNo", source = "orderNo")
-    KitchenOrderDto toKitchenOrderDto(WaiterOrder waiterOrder);
+    KitchenOrderDto toKitchenOrderDto(WaiterOrderEntity waiterOrder);
+
+
 }
