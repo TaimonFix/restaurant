@@ -4,7 +4,7 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 import ru.liga.waiterservice.model.dto.enums.Status;
-import ru.liga.waiterservice.model.entity.WaiterOrder;
+import ru.liga.waiterservice.model.entity.WaiterOrderEntity;
 
 import java.util.List;
 
@@ -12,11 +12,11 @@ import java.util.List;
 @Repository
 public interface WaiterOrderRepository {
 
-    List<WaiterOrder> getOrders();
+    List<WaiterOrderEntity> getOrders();
 
-    WaiterOrder getOrder(@Param("id") Long id);
+    WaiterOrderEntity getOrder(@Param("id") Long id);
 
-    void addOrder(WaiterOrder order);
+    void addOrder(WaiterOrderEntity order);
 
     Status getStatus(@Param("id") Long id);
 }

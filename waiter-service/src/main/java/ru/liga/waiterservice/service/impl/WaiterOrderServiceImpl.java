@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 import ru.liga.waiterservice.mapper.WaiterOrderMapper;
 import ru.liga.waiterservice.model.dto.WaiterOrderDto;
 import ru.liga.waiterservice.model.dto.enums.Status;
-import ru.liga.waiterservice.model.entity.WaiterOrder;
+import ru.liga.waiterservice.model.entity.WaiterOrderEntity;
 import ru.liga.waiterservice.repository.WaiterOrderRepository;
 import ru.liga.waiterservice.service.WaiterOrderService;
 
@@ -36,7 +36,7 @@ public class WaiterOrderServiceImpl implements WaiterOrderService {
         if (orderDto.getCreateDttm() == null) {
             orderDto.setCreateDttm(OffsetDateTime.now());
         }
-        WaiterOrder order = waiterOrderMapper.toEntity(orderDto);
+        WaiterOrderEntity order = waiterOrderMapper.toEntity(orderDto);
         waiterOrderRepository.addOrder(order);
         return order.getOrderNo();
     }

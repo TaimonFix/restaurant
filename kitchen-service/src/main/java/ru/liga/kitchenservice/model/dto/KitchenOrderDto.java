@@ -1,7 +1,7 @@
 package ru.liga.kitchenservice.model.dto;
 
 import lombok.*;
-import ru.liga.kitchenservice.model.dto.enums.Status;
+import ru.liga.kitchenservice.model.dto.enums.OrderStatus;
 
 import java.time.OffsetDateTime;
 
@@ -9,7 +9,7 @@ import java.time.OffsetDateTime;
 public class KitchenOrderDto {
     private Long kitchenOrderId;
     private Long waiterOrderNo;
-    private Status status = Status.NEW;
+    private OrderStatus status = OrderStatus.NEW;
     private OffsetDateTime createDttm;
 
 

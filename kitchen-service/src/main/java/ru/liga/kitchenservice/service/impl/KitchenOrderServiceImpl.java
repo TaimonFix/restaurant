@@ -4,7 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import ru.liga.kitchenservice.mapper.KitchenOrderMapper;
 import ru.liga.kitchenservice.model.dto.KitchenOrderDto;
-import ru.liga.kitchenservice.model.dto.enums.Status;
+import ru.liga.kitchenservice.model.dto.enums.OrderStatus;
 import ru.liga.kitchenservice.model.entity.KitchenOrder;
 import ru.liga.kitchenservice.repository.KitchenOrderRepository;
 import ru.liga.kitchenservice.service.KitchenOrderService;
@@ -23,7 +23,7 @@ public class KitchenOrderServiceImpl implements KitchenOrderService {
     }
 
     @Override
-    public Long addOrder(KitchenOrderDto kitchenDto) {
+    public Long saveOrder(KitchenOrderDto kitchenDto) {
         KitchenOrder order = kitchenOrderMapper.toEntity(kitchenDto);
         System.out.println(order.toString());
         return kitchenOrderRepository.save(order).getId();
@@ -35,14 +35,10 @@ public class KitchenOrderServiceImpl implements KitchenOrderService {
      */
     @Override
     public KitchenOrderDto updateOrderStatus(Long id, String status) {
-        try {
-            String currentStatus = String.valueOf(Status.valueOf(status));
+            String currentStatus = String.valueOf(OrderStatus.getStatusFromString(status));
             KitchenOrder kitchenOrder = kitchenOrderRepository.findById(id)
                     .orElseThrow(() -> new NullPointerException("Заказ с id '" + id + "' отсутствует."));
             kitchenOrder.setStatus(currentStatus);
             return kitchenOrderMapper.toDto(kitchenOrderRepository.save(kitchenOrder));
-        } catch (IllegalArgumentException e) {
-            throw new IllegalArgumentException("Статус '" + status + "' отсутствует.");
-        }
     }
 }

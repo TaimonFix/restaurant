@@ -1,16 +1,16 @@
-package ru.liga.waiterservice.model.dto.enums;
+package ru.liga.kitchenservice.model.dto.enums;
 
 /**
  * Статус заказа
  */
-public enum Status {
+public enum OrderStatus {
     NEW, // новый
     APPROVED, // принят
     REJECTED, // отклонен
     READY; // готов
 
-    public static Status getStatusFromString(String status) {
-        for (Status currentStatus: Status.values()) {
+    public static OrderStatus getStatusFromString(String status) {
+        for (OrderStatus currentStatus: OrderStatus.values()) {
             if (currentStatus.toString().equals(status)) {
                 return currentStatus;
             }

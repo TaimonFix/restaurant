@@ -7,7 +7,7 @@ import ru.liga.waiterservice.model.dto.enums.Status;
 import java.time.OffsetDateTime;
 
 @Data
-public class WaiterOrder {
+public class WaiterOrderEntity {
     private Long orderNo;
     private Status status;
     private OffsetDateTime createDttm;
