@@ -6,7 +6,7 @@ import ru.liga.waiterservice.model.dto.enums.Status;
 import java.time.OffsetDateTime;
 
 /**
- * Dto взаимодействия с kitchen-service по API
+ * Dto для взаимодействия с kitchen-service по API
  */
 @Data
 public class KitchenOrderDto {

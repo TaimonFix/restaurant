@@ -2,8 +2,10 @@ package ru.liga.kitchenservice.service.impl;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import ru.liga.kitchenservice.exception.OrderIsNotReadyException;
 import ru.liga.kitchenservice.mapper.KitchenOrderMapper;
 import ru.liga.kitchenservice.model.dto.KitchenOrderDto;
+import ru.liga.kitchenservice.model.dto.WaiterOrderDto;
 import ru.liga.kitchenservice.model.dto.enums.Status;
 import ru.liga.kitchenservice.model.entity.KitchenOrder;
 import ru.liga.kitchenservice.repository.KitchenOrderRepository;
@@ -53,5 +55,21 @@ public class KitchenOrderServiceImpl implements KitchenOrderService {
         } catch (IllegalArgumentException e) {
             throw new IllegalArgumentException("Статус '" + status + "' отсутствует.");
         }
+    }
+    @Override
+    public WaiterOrderDto getWaiterOrderDto(Long id) {
+        WaiterOrderDto waiterOrderDto = toWaiterOrderDto(id);
+
+        if (waiterOrderDto.getStatus() != Status.READY) {
+            throw new OrderIsNotReadyException();
+        }
+
+        return waiterOrderDto;
+    }
+
+    public WaiterOrderDto toWaiterOrderDto(Long id) {
+        KitchenOrder kitchenOrder = kitchenOrderRepository.findById(id)
+                .orElseThrow(() -> new NullPointerException("Заказ с id '" + id + "' отсутствует."));
+        return kitchenOrderMapper.toWaiterOrderDto(kitchenOrder);
     }
 }

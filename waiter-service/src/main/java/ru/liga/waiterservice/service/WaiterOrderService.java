@@ -22,7 +22,7 @@ public interface WaiterOrderService {
     /**
      * Добавить заказ
      */
-    Long addOrder(WaiterOrderDto orderDto);
+    Long saveOrder(WaiterOrderDto orderDto);
 
     /**
      * Получить статус заказа
@@ -30,6 +30,11 @@ public interface WaiterOrderService {
      * @param id идентификатор заказа
      */
     Status getStatus(Long id);
+
+    /**
+     * Обновить данные о заказе
+     */
+    Long updateOrder(WaiterOrderDto orderDto);
 
     /**
      * Взять WaiterOrder из БД и перевести в KitchenOrderDto для отправки в kitchen-service

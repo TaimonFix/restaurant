@@ -8,6 +8,36 @@
 	},
 	"item": [
 		{
+			"name": "api-waiter-service",
+			"item": [
+				{
+					"name": "Отправить готовый заказ в ресторан",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "localhost:8081/order/waiter?id=3",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"order",
+								"waiter"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
 			"name": "Получить все заказы",
 			"request": {
 				"method": "GET",

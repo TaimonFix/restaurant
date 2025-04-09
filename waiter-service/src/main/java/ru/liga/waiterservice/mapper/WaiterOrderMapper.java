@@ -21,6 +21,4 @@ public interface WaiterOrderMapper {
 
     @Mapping(target = "waiterOrderNo", source = "orderNo")
     KitchenOrderDto toKitchenOrderDto(WaiterOrder waiterOrder);
-
-
 }

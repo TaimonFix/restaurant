@@ -16,7 +16,9 @@ public interface WaiterOrderRepository {
 
     WaiterOrder getOrder(@Param("id") Long id);
 
-    void addOrder(WaiterOrder order);
+    void saveOrder(WaiterOrder order);
 
     Status getStatus(@Param("id") Long id);
+
+    void updateOrder(WaiterOrder order);
 }

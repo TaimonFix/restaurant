@@ -1,48 +1,157 @@
 {
 	"info": {
-		"_postman_id": "6be3555b-507f-4a3f-b5aa-62c097130158",
-		"name": "project_t1",
+		"_postman_id": "05822cb4-ab16-4186-9147-e7af9e3649e9",
+		"name": "waiter-service",
+		"description": "Коллекция для тестирования базовых endpoints в waiter-service",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "42532604"
 	},
 	"item": [
 		{
-			"name": "create",
+			"name": "api-kitchen-service",
+			"item": [
+				{
+					"name": "Отправить заказ на кухню",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:8082/order/kitchen?id=2",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"order",
+								"kitchen"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Создать заказ",
 			"request": {
-				"method": "GET",
-				"header": []
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"orderNo\": 1,\r\n \"waiterId\": \"2\",\r\n \"tableNo\": \"test\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8082/order",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"order"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
 			},
 			"response": []
 		},
 		{
-			"name": "getTask",
+			"name": "Получить заказ по id",
 			"request": {
 				"method": "GET",
-				"header": []
+				"header": [],
+				"url": {
+					"raw": "localhost:8082/order/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"order",
+						"1"
+					]
+				}
 			},
 			"response": []
 		},
 		{
-			"name": "updateTask",
+			"name": "Получить все заказы",
 			"request": {
 				"method": "GET",
-				"header": []
+				"header": [],
+				"url": {
+					"raw": "localhost:8082/order",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"order"
+					]
+				}
 			},
 			"response": []
 		},
 		{
-			"name": "deleteTask",
+			"name": "Получить статус заказа",
 			"request": {
 				"method": "GET",
-				"header": []
+				"header": [],
+				"url": {
+					"raw": "localhost:8082/order/status/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"order",
+						"status",
+						"1"
+					]
+				}
 			},
 			"response": []
 		},
 		{
-			"name": "getTasks",
+			"name": "Обновить данные заказа",
 			"request": {
-				"method": "GET",
-				"header": []
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"orderNo\": 1,\r\n    \"status\": \"READY\",\r\n    \"createDttm\": \"2023-06-30T09:30:00Z\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8082/order",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"order"
+					]
+				}
 			},
 			"response": []
 		}

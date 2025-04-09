@@ -12,4 +12,9 @@ public class CustomExceptionHandler {
     public ResponseEntity<Object> handleRuntimeException(RuntimeException exc) {
         return new ResponseEntity<>(exc.getMessage(), HttpStatus.NOT_FOUND);
     }
+
+    @ExceptionHandler(value = {OrderIsNotReadyException.class})
+    public ResponseEntity<Object> handleOrderIsNotReadyException(OrderIsNotReadyException exc) {
+        return new ResponseEntity<>(exc.getMessage(), HttpStatus.ACCEPTED);
+    }
 }

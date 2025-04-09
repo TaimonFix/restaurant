@@ -16,7 +16,7 @@
         WHERE order_no = #{id, jdbcType=BIGINT}
     </select>
     
-    <insert id="addOrder" useGeneratedKeys="true" keyColumn="order_no" keyProperty="orderNo">
+    <insert id="saveOrder" useGeneratedKeys="true" keyColumn="order_no" keyProperty="orderNo">
             INSERT INTO waiter_order (status, create_dttm, waiter_id, table_no)
             VALUES (
                     #{status},
@@ -35,4 +35,22 @@
         WHERE order_no = #{id, jdbcType=BIGINT}
     </select>
 
+    <update id="updateOrder" parameterType="ru.liga.waiterservice.model.entity.WaiterOrder">
+        UPDATE waiter_order
+        <set>
+            <if test="status != null">
+                status = #{status},
+            </if>
+            <if test="createDttm != null">
+                create_dttm = #{createDttm},
+            </if>
+            <if test="waiterId != null">
+                waiter_id = #{waiterId},
+            </if>
+            <if test="tableNo != null">
+                table_no = #{tableNo},
+            </if>
+        </set>
+        WHERE order_no = #{orderNo}
+    </update>
 </mapper>

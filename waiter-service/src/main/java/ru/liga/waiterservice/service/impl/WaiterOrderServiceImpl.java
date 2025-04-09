@@ -31,15 +31,13 @@ public class WaiterOrderServiceImpl implements WaiterOrderService {
         return waiterOrderMapper.toDto(order);
     }
 
-    public Long addOrder(WaiterOrderDto orderDto) {
-        if (orderDto.getStatus() == null) {
-            orderDto.setStatus(Status.NEW);
-        }
+    public Long saveOrder(WaiterOrderDto orderDto) {
+//
         if (orderDto.getCreateDttm() == null) {
             orderDto.setCreateDttm(OffsetDateTime.now());
         }
         WaiterOrder order = waiterOrderMapper.toEntity(orderDto);
-        waiterOrderRepository.addOrder(order);
+        waiterOrderRepository.saveOrder(order);
         return order.getOrderNo();
     }
 
@@ -48,6 +46,12 @@ public class WaiterOrderServiceImpl implements WaiterOrderService {
             throw new NullPointerException("Заказ с id '" + id + "' отсутствует.");
         }
         return waiterOrderRepository.getStatus(id);
+    }
+
+    public Long updateOrder(WaiterOrderDto orderDto) {
+        WaiterOrder order = waiterOrderMapper.toEntity(orderDto);
+        waiterOrderRepository.updateOrder(order);
+        return order.getOrderNo();
     }
 
     public KitchenOrderDto toKitchenOrderDto(Long id) {

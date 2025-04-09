@@ -19,7 +19,7 @@
         <org.postgresql.version>42.7.5</org.postgresql.version>
         <org.mapstruct.version>1.6.3</org.mapstruct.version>
         <mybatis.core.version>3.0.4</mybatis.core.version>
-        <openfeign.version>4.2.0</openfeign.version>
+        <feign.version>4.2.0</feign.version>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -67,7 +67,7 @@
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-starter-openfeign</artifactId>
-                <version>${openfeign.version}</version>
+                <version>${feign.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

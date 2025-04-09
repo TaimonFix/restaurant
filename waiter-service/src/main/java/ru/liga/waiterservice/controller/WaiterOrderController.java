@@ -3,7 +3,6 @@ package ru.liga.waiterservice.controller;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import ru.liga.waiterservice.feign.KitchenServiceFeignClient;
-import ru.liga.waiterservice.model.dto.KitchenOrderDto;
 import ru.liga.waiterservice.model.dto.WaiterOrderDto;
 import ru.liga.waiterservice.model.dto.enums.Status;
 import ru.liga.waiterservice.service.WaiterOrderService;
@@ -39,8 +38,8 @@ public class WaiterOrderController {
      * Создать заказ
      */
     @PostMapping
-    public Long addOrder(@RequestBody WaiterOrderDto orderDto) {
-        return orderService.addOrder(orderDto);
+    public Long saveOrder(@RequestBody WaiterOrderDto orderDto) {
+        return orderService.saveOrder(orderDto);
     }
 
     /**
@@ -53,6 +52,15 @@ public class WaiterOrderController {
     }
 
     /**
+     * Обновить данные о заказе
+     @return идентификатор заказа
+     */
+    @PutMapping("/kitchen")
+    public Long updateOrder(@RequestBody WaiterOrderDto orderDto) {
+        return orderService.updateOrder(orderDto);
+    }
+
+    /**
      * Отправить заказ на кухню
      * @param id идентификатор заказа со стороны waiter-service
      * @return идентификатор заказа со стороны кухни
@@ -60,6 +68,6 @@ public class WaiterOrderController {
     @PostMapping("/kitchen")
     public String postOrder(@RequestParam Long id) {
         Long kitchenOrderId = kitchenServiceFeignClient.postOrder(orderService.toKitchenOrderDto(id));
-        return "Заказ отправлен на кухню! Номер заказа: " + kitchenOrderId;
+        return "Заказ отправлен на кухню! Номер заказа на кухне: " + kitchenOrderId;
     }
 }
