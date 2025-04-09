@@ -3,6 +3,7 @@ package ru.liga.waiterservice.service.impl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import ru.liga.waiterservice.mapper.WaiterOrderMapper;
+import ru.liga.waiterservice.model.dto.KitchenOrderDto;
 import ru.liga.waiterservice.model.dto.WaiterOrderDto;
 import ru.liga.waiterservice.model.dto.enums.Status;
 import ru.liga.waiterservice.model.entity.WaiterOrder;
@@ -23,10 +24,11 @@ public class WaiterOrderServiceImpl implements WaiterOrderService {
     }
 
     public WaiterOrderDto getOrder(Long id) {
-        if (waiterOrderRepository.getOrder(id) == null) {
+        WaiterOrder order = waiterOrderRepository.getOrder(id);
+        if (order == null) {
             throw new NullPointerException("Заказ с id '" + id + "' отсутствует.");
         }
-        return waiterOrderMapper.toDto(waiterOrderRepository.getOrder(id));
+        return waiterOrderMapper.toDto(order);
     }
 
     public Long addOrder(WaiterOrderDto orderDto) {
@@ -46,5 +48,13 @@ public class WaiterOrderServiceImpl implements WaiterOrderService {
             throw new NullPointerException("Заказ с id '" + id + "' отсутствует.");
         }
         return waiterOrderRepository.getStatus(id);
+    }
+
+    public KitchenOrderDto toKitchenOrderDto(Long id) {
+        WaiterOrder order = waiterOrderRepository.getOrder(id);
+        if (order == null) {
+            throw new NullPointerException("Заказ с id '" + id + "' отсутствует.");
+        }
+        return waiterOrderMapper.toKitchenOrderDto(order);
     }
 }

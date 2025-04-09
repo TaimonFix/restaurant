@@ -20,6 +20,7 @@ public class KitchenOrderController {
 
     @PostMapping
     public Long saveOrder(@RequestBody KitchenOrderDto kitchenDto) {
+        System.out.println(kitchenDto);
         return kitchenOrderService.saveOrder(kitchenDto);
     }
 

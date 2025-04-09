@@ -2,6 +2,7 @@ package ru.liga.waiterservice.mapper;
 
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
+import ru.liga.waiterservice.model.dto.KitchenOrderDto;
 import ru.liga.waiterservice.model.dto.WaiterOrderDto;
 import ru.liga.waiterservice.model.entity.WaiterOrder;
 
@@ -17,6 +18,9 @@ public interface WaiterOrderMapper {
     WaiterOrder toEntity(WaiterOrderDto waiterOrderdto);
 
     List<WaiterOrderDto> toDtoList(List<WaiterOrder> kitchenOrders);
+
+    @Mapping(target = "waiterOrderNo", source = "orderNo")
+    KitchenOrderDto toKitchenOrderDto(WaiterOrder waiterOrder);
 
 
 }

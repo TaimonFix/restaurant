@@ -11,7 +11,4 @@ public class KitchenOrderDto {
     private Long waiterOrderNo;
     private Status status = Status.NEW;
     private OffsetDateTime createDttm;
-
-
-
 }

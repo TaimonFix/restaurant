@@ -1,5 +1,6 @@
 package ru.liga.waiterservice.service;
 
+import ru.liga.waiterservice.model.dto.KitchenOrderDto;
 import ru.liga.waiterservice.model.dto.WaiterOrderDto;
 import ru.liga.waiterservice.model.dto.enums.Status;
 
@@ -29,4 +30,11 @@ public interface WaiterOrderService {
      * @param id идентификатор заказа
      */
     Status getStatus(Long id);
+
+    /**
+     * Взять WaiterOrder из БД и перевести в KitchenOrderDto для отправки в kitchen-service
+     * @param id идентификатор заказа со стороны официантов
+     * @return
+     */
+    KitchenOrderDto toKitchenOrderDto(Long id);
 }

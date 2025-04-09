@@ -11,7 +11,7 @@ import java.time.OffsetDateTime;
 @Data
 public class WaiterOrderDto {
     private Long orderNo;
-    private Status status;
+    private Status status = Status.NEW;
     private OffsetDateTime createDttm;
     private Long waiterId;
     private String tableNo;
