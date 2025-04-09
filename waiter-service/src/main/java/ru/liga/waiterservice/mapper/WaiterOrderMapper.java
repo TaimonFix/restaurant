@@ -4,7 +4,7 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import ru.liga.waiterservice.model.dto.KitchenOrderDto;
 import ru.liga.waiterservice.model.dto.WaiterOrderDto;
-import ru.liga.waiterservice.model.entity.WaiterOrder;
+import ru.liga.waiterservice.model.entity.WaiterOrderEntity;
 
 import java.util.List;
 
@@ -12,12 +12,12 @@ import java.util.List;
 public interface WaiterOrderMapper {
 
     @Mapping(target = "orderNo", source = "orderNo")
-    WaiterOrderDto toDto(WaiterOrder waiterOrder);
+    WaiterOrderDto toDto(WaiterOrderEntity waiterOrderEntity);
 
     @Mapping(target = "orderNo", source = "orderNo")
-    WaiterOrder toEntity(WaiterOrderDto waiterOrderdto);
+    WaiterOrderEntity toEntity(WaiterOrderDto waiterOrderdto);
 
-    List<WaiterOrderDto> toDtoList(List<WaiterOrder> kitchenOrders);
+    List<WaiterOrderDto> toDtoList(List<WaiterOrderEntity> kitchenOrders);
 
     @Mapping(target = "waiterOrderNo", source = "orderNo")
     KitchenOrderDto toKitchenOrderDto(WaiterOrder waiterOrder);

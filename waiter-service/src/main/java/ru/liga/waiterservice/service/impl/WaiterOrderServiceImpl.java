@@ -5,8 +5,8 @@ import org.springframework.stereotype.Service;
 import ru.liga.waiterservice.mapper.WaiterOrderMapper;
 import ru.liga.waiterservice.model.dto.KitchenOrderDto;
 import ru.liga.waiterservice.model.dto.WaiterOrderDto;
-import ru.liga.waiterservice.model.dto.enums.Status;
-import ru.liga.waiterservice.model.entity.WaiterOrder;
+import ru.liga.waiterservice.model.dto.enums.OrderStatus;
+import ru.liga.waiterservice.model.entity.WaiterOrderEntity;
 import ru.liga.waiterservice.repository.WaiterOrderRepository;
 import ru.liga.waiterservice.service.WaiterOrderService;
 
@@ -24,7 +24,7 @@ public class WaiterOrderServiceImpl implements WaiterOrderService {
     }
 
     public WaiterOrderDto getOrder(Long id) {
-        WaiterOrder order = waiterOrderRepository.getOrder(id);
+        WaiterOrderEntity order = waiterOrderRepository.getOrder(id);
         if (order == null) {
             throw new NullPointerException("Заказ с id '" + id + "' отсутствует.");
         }
@@ -32,16 +32,15 @@ public class WaiterOrderServiceImpl implements WaiterOrderService {
     }
 
     public Long saveOrder(WaiterOrderDto orderDto) {
-//
         if (orderDto.getCreateDttm() == null) {
             orderDto.setCreateDttm(OffsetDateTime.now());
         }
-        WaiterOrder order = waiterOrderMapper.toEntity(orderDto);
+        WaiterOrderEntity order = waiterOrderMapper.toEntity(orderDto);
         waiterOrderRepository.saveOrder(order);
         return order.getOrderNo();
     }
 
-    public Status getStatus(Long id) {
+    public OrderStatus getStatus(Long id) {
         if (waiterOrderRepository.getOrder(id) == null) {
             throw new NullPointerException("Заказ с id '" + id + "' отсутствует.");
         }
@@ -49,13 +48,13 @@ public class WaiterOrderServiceImpl implements WaiterOrderService {
     }
 
     public Long updateOrder(WaiterOrderDto orderDto) {
-        WaiterOrder order = waiterOrderMapper.toEntity(orderDto);
+        WaiterOrderEntity order = waiterOrderMapper.toEntity(orderDto);
         waiterOrderRepository.updateOrder(order);
         return order.getOrderNo();
     }
 
     public KitchenOrderDto toKitchenOrderDto(Long id) {
-        WaiterOrder order = waiterOrderRepository.getOrder(id);
+        WaiterOrderEntity order = waiterOrderRepository.getOrder(id);
         if (order == null) {
             throw new NullPointerException("Заказ с id '" + id + "' отсутствует.");
         }
