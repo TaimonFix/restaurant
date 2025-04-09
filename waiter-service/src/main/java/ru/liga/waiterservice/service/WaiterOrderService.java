@@ -2,7 +2,7 @@ package ru.liga.waiterservice.service;
 
 import ru.liga.waiterservice.model.dto.KitchenOrderDto;
 import ru.liga.waiterservice.model.dto.WaiterOrderDto;
-import ru.liga.waiterservice.model.dto.enums.Status;
+import ru.liga.waiterservice.model.dto.enums.OrderStatus;
 
 import java.util.List;
 
@@ -29,7 +29,7 @@ public interface WaiterOrderService {
      *
      * @param id идентификатор заказа
      */
-    Status getStatus(Long id);
+    OrderStatus getOrderStatus(Long id);
 
     /**
      * Обновить данные о заказе

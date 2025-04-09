@@ -4,7 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import ru.liga.waiterservice.feign.KitchenServiceFeignClient;
 import ru.liga.waiterservice.model.dto.WaiterOrderDto;
-import ru.liga.waiterservice.model.dto.enums.Status;
+import ru.liga.waiterservice.model.dto.enums.OrderStatus;
 import ru.liga.waiterservice.service.WaiterOrderService;
 import java.util.List;
 
@@ -38,7 +38,7 @@ public class WaiterOrderController {
      * Создать заказ
      */
     @PostMapping
-    public Long saveOrder(@RequestBody WaiterOrderDto orderDto) {
+    public Long addOrder(@RequestBody WaiterOrderDto orderDto) {
         return orderService.saveOrder(orderDto);
     }
 
@@ -47,8 +47,8 @@ public class WaiterOrderController {
      * @param id идентификатор заказа
      */
     @GetMapping("/status/{id}")
-    public Status getStatus(@PathVariable Long id) {
-        return orderService.getStatus(id);
+    public OrderStatus getStatus(@PathVariable Long id) {
+        return orderService.getOrderStatus(id);
     }
 
     /**

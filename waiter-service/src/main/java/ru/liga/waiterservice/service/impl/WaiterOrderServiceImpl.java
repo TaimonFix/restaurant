@@ -32,6 +32,9 @@ public class WaiterOrderServiceImpl implements WaiterOrderService {
     }
 
     public Long saveOrder(WaiterOrderDto orderDto) {
+        if (orderDto.getStatus() == null) {
+            orderDto.setStatus(OrderStatus.NEW);
+        }
         if (orderDto.getCreateDttm() == null) {
             orderDto.setCreateDttm(OffsetDateTime.now());
         }
@@ -40,7 +43,7 @@ public class WaiterOrderServiceImpl implements WaiterOrderService {
         return order.getOrderNo();
     }
 
-    public OrderStatus getStatus(Long id) {
+    public OrderStatus getOrderStatus(Long id) {
         if (waiterOrderRepository.getOrder(id) == null) {
             throw new NullPointerException("Заказ с id '" + id + "' отсутствует.");
         }

@@ -26,7 +26,7 @@
                    )
     </insert>
 
-    <resultMap id="Status" type="ru.liga.waiterservice.model.dto.enums.Status" autoMapping="true">
+    <resultMap id="Status" type="ru.liga.waiterservice.model.dto.enums.OrderStatus" autoMapping="true">
         <result column="status" property="status"/>
     </resultMap>
     <select id="getStatus" resultMap="Status">
