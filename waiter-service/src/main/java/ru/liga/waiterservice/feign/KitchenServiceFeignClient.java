@@ -14,6 +14,6 @@ public interface KitchenServiceFeignClient {
     /**
      * Отправить заказ на кухню
      */
-    @PostMapping("/order")
+    @PostMapping("/order/kitchen/ready")
     Long postOrder(@RequestBody KitchenOrderDto kitchenOrderDto);
 }

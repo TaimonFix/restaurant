@@ -32,9 +32,6 @@ public class WaiterOrderServiceImpl implements WaiterOrderService {
     }
 
     public Long saveOrder(WaiterOrderDto orderDto) {
-        if (orderDto.getStatus() == null) {
-            orderDto.setStatus(OrderStatus.NEW);
-        }
         if (orderDto.getCreateDttm() == null) {
             orderDto.setCreateDttm(OffsetDateTime.now());
         }

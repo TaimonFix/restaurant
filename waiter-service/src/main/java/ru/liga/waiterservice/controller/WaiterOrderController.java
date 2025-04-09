@@ -38,7 +38,7 @@ public class WaiterOrderController {
      * Создать заказ
      */
     @PostMapping
-    public Long addOrder(@RequestBody WaiterOrderDto orderDto) {
+    public Long saveOrder(@RequestBody WaiterOrderDto orderDto) {
         return orderService.saveOrder(orderDto);
     }
 
