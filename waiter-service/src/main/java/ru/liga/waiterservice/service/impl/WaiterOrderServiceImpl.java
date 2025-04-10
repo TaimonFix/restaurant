@@ -13,6 +13,9 @@ import ru.liga.waiterservice.service.WaiterOrderService;
 import java.time.OffsetDateTime;
 import java.util.List;
 
+/**
+ * Реализация {@link WaiterOrderService}
+ */
 @Service
 @RequiredArgsConstructor
 public class WaiterOrderServiceImpl implements WaiterOrderService {

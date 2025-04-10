@@ -6,11 +6,34 @@ import ru.liga.waiterservice.model.dto.enums.OrderStatus;
 
 import java.time.OffsetDateTime;
 
+/**
+ * Заказ на стороне waiter-service
+ */
 @Data
 public class WaiterOrderEntity {
+
+    /**
+     * id заказа
+     */
     private Long orderNo;
+
+    /**
+     * Статус заказа
+     */
     private OrderStatus status;
+
+    /**
+     * Время создания заказа
+     */
     private OffsetDateTime createDttm;
+
+    /**
+     * id официанта
+     */
     private Long waiterId;
+
+    /**
+     * Номер столика
+     */
     private String tableNo;
 }

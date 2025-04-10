@@ -1,7 +1,7 @@
 package ru.liga.kitchenservice.model.dto;
 
 import lombok.Data;
-import ru.liga.kitchenservice.model.dto.enums.Status;
+import ru.liga.kitchenservice.model.dto.enums.OrderStatus;
 
 import java.time.OffsetDateTime;
 
@@ -10,7 +10,19 @@ import java.time.OffsetDateTime;
  */
 @Data
 public class WaiterOrderDto {
+
+    /**
+     * id заказа со стороны waiter-service
+     */
     private Long orderNo;
-    private Status status;
+
+    /**
+     * Статус заказа
+     */
+    private OrderStatus status;
+
+    /**
+     * Время создания заказа
+     */
     private OffsetDateTime createDttm;
 }

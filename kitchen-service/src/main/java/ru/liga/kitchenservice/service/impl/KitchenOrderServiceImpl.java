@@ -13,6 +13,9 @@ import ru.liga.kitchenservice.service.KitchenOrderService;
 import java.time.OffsetDateTime;
 import java.util.List;
 
+/**
+ * Реализация {@link KitchenOrderService}
+ */
 @Service
 @RequiredArgsConstructor
 public class KitchenOrderServiceImpl implements KitchenOrderService {

@@ -8,6 +8,9 @@ import ru.liga.kitchenservice.model.entity.KitchenOrder;
 
 import java.util.List;
 
+/**
+ * Маппер для работы с заказами
+ */
 @Mapper(componentModel = "spring")
 public interface KitchenOrderMapper {
 

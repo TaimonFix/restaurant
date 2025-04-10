@@ -5,7 +5,9 @@ import ru.liga.kitchenservice.model.dto.WaiterOrderDto;
 
 import java.util.List;
 
-
+/**
+ * Сервис для работы с заказами
+ */
 public interface KitchenOrderService {
 
     /**
