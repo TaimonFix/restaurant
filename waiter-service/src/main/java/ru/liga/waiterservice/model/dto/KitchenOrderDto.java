@@ -1,5 +1,4 @@
-package ru.liga.waiterservice.model.entity;
-
+package ru.liga.waiterservice.model.dto;
 
 import lombok.Data;
 import ru.liga.waiterservice.model.dto.enums.OrderStatus;
@@ -7,15 +6,15 @@ import ru.liga.waiterservice.model.dto.enums.OrderStatus;
 import java.time.OffsetDateTime;
 
 /**
- * Заказ на стороне waiter-service
+ * Dto для взаимодействия с kitchen-service по API
  */
 @Data
-public class WaiterOrderEntity {
+public class KitchenOrderDto {
 
     /**
-     * id заказа
+     * id заказа со стороны waiter-service
      */
-    private Long orderNo;
+    private Long waiterOrderNo;
 
     /**
      * Статус заказа
@@ -26,14 +25,4 @@ public class WaiterOrderEntity {
      * Время создания заказа
      */
     private OffsetDateTime createDttm;
-
-    /**
-     * id официанта
-     */
-    private Long waiterId;
-
-    /**
-     * Номер столика
-     */
-    private String tableNo;
 }

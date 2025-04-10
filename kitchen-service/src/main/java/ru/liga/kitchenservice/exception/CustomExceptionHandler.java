@@ -5,11 +5,19 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
+/**
+ * Обработчик ошибок
+ */
 @ControllerAdvice
 public class CustomExceptionHandler {
 
     @ExceptionHandler(value = {NullPointerException.class, IllegalArgumentException.class})
     public ResponseEntity<Object> handleRuntimeException(RuntimeException exc) {
         return new ResponseEntity<>(exc.getMessage(), HttpStatus.NOT_FOUND);
+    }
+
+    @ExceptionHandler(value = {OrderIsNotReadyException.class})
+    public ResponseEntity<Object> handleOrderIsNotReadyException(OrderIsNotReadyException exc) {
+        return new ResponseEntity<>(exc.getMessage(), HttpStatus.ACCEPTED);
     }
 }

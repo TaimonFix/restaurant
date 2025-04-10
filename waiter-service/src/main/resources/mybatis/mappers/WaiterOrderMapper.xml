@@ -35,4 +35,22 @@
         WHERE order_no = #{id, jdbcType=BIGINT}
     </select>
 
+    <update id="updateOrder" parameterType="ru.liga.waiterservice.model.entity.WaiterOrderEntity">
+        UPDATE waiter_order
+        <set>
+            <if test="status != null">
+                status = #{status},
+            </if>
+            <if test="createDttm != null">
+                create_dttm = #{createDttm},
+            </if>
+            <if test="waiterId != null">
+                waiter_id = #{waiterId},
+            </if>
+            <if test="tableNo != null">
+                table_no = #{tableNo},
+            </if>
+        </set>
+        WHERE order_no = #{orderNo}
+    </update>
 </mapper>

@@ -11,6 +11,9 @@ import org.hibernate.Hibernate;
 
 import java.util.Objects;
 
+/**
+ * id заказа
+ */
 @Getter
 @Setter
 @NoArgsConstructor
@@ -19,10 +22,16 @@ import java.util.Objects;
 public class OrderToDishId implements java.io.Serializable {
     private static final long serialVersionUID = 3938159353249121385L;
 
+    /**
+     * id заказа
+     */
     @NotNull
     @Column(name = "kitchen_order_id")
     private Long kitchenOrderId;
 
+    /**
+     * id блюда
+     */
     @NotNull
     @Column(name = "dish_id")
     private Long dishId;

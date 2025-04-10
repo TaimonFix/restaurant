@@ -12,6 +12,9 @@ spring:
     enabled: true
     change-log: classpath:/db/changelog/changelog-master.xml
     default-schema: public
+feign:
+  value: "waiter-service-api"
+  url: localhost:8082
 management:
   endpoints:
     web:
