@@ -10,7 +10,6 @@ import ru.liga.kitchenservice.model.dto.enums.OrderStatus;
 import ru.liga.kitchenservice.model.entity.KitchenOrder;
 import ru.liga.kitchenservice.repository.KitchenOrderRepository;
 import ru.liga.kitchenservice.service.KitchenOrderService;
-import java.time.OffsetDateTime;
 import java.util.List;
 
 /**
@@ -30,13 +29,6 @@ public class KitchenOrderServiceImpl implements KitchenOrderService {
 
     @Override
     public Long saveOrder(KitchenOrderDto kitchenDto) {
-        if (kitchenDto == null) {
-            throw new NullPointerException("Введите данные о заказе!");
-        }
-
-        if (kitchenDto.getCreateDttm() == null) {
-            kitchenDto.setCreateDttm(OffsetDateTime.now());
-        }
         KitchenOrder order = kitchenOrderMapper.toEntity(kitchenDto);
         System.out.println(order.toString());
         return kitchenOrderRepository.save(order).getId();
