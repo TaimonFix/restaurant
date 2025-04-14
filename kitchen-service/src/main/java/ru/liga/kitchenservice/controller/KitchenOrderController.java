@@ -55,6 +55,7 @@ public class KitchenOrderController {
 
     /**
      * Отправить готовый заказ в waiter-service
+     *
      * @param id идентификатор заказа со стороны кухни
      * @return Сообщение об отправке заказа на сторону официантов
      */
@@ -63,6 +64,5 @@ public class KitchenOrderController {
         WaiterOrderDto orderDto = kitchenOrderService.getWaiterOrderDto(id);
         Long waiterOrderId = waiterServiceFeignClient.postOrder(orderDto);
         return "Заказ отправлен в ресторан с номером: " + waiterOrderId;
-
     }
 }

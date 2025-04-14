@@ -56,5 +56,12 @@ public interface WaiterOrderService {
      * @param id идентификатор заказа со стороны официантов
      * @return DTO для последующей отправки в kitchen-service
      */
-    KitchenOrderDto toKitchenOrderDto(Long id);
+//    KitchenOrderDto toKitchenOrderDto(Long id);
+
+    /**
+     * Отправить заказ на кухню
+     *
+     * @param id идентификатор заказа
+     */
+    void postOrderToTheKitchen(Long id);
 }

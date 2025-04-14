@@ -12,6 +12,15 @@ spring:
     enabled: true
     change-log: classpath:/db/changelog/changelog-master.xml
     default-schema: public
+  kafka:
+    bootstrap-servers:
+      - localhost:29092
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.LongSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+      created-topic: ordersTopic
+      properties:
+        acks: 1
 feign:
   value: "kitchen-service-api"
   url: localhost:8081

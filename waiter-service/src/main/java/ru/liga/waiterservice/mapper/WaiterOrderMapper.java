@@ -25,5 +25,8 @@ public interface WaiterOrderMapper {
     @Mapping(target = "waiterOrderNo", source = "orderNo")
     KitchenOrderDto toKitchenOrderDto(WaiterOrderEntity waiterOrder);
 
+    @Mapping(target = "waiterOrderNo", source = "orderNo")
+    KitchenOrderDto toKitchenOrderDto(WaiterOrderDto waiterOrderDto);
+
 
 }
