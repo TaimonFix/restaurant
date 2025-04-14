@@ -1,0 +1,21 @@
+version: "3.9"
+name: restaurant
+services:
+  kitchen-service:
+    container_name: "kitchen-service_db"
+    image: postgres:13.3
+    environment:
+      POSTGRES_DB: "kitchen-service"
+      POSTGRES_USER: "test"
+      POSTGRES_PASSWORD: "test"
+    ports:
+      - "5437:5432"
+  waiter-service:
+    container_name: "waiter-service_db"
+    image: postgres:13.3
+    environment:
+      POSTGRES_DB: "waiter-service"
+      POSTGRES_USER: "test"
+      POSTGRES_PASSWORD: "test"
+    ports:
+      - "5438:5432"
