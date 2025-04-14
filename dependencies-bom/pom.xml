@@ -20,6 +20,7 @@
         <org.mapstruct.version>1.6.3</org.mapstruct.version>
         <mybatis.core.version>3.0.4</mybatis.core.version>
         <feign.version>4.2.0</feign.version>
+        <spring-kafka.version>3.3.4</spring-kafka.version>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -68,6 +69,16 @@
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-starter-openfeign</artifactId>
                 <version>${feign.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.kafka</groupId>
+                <artifactId>spring-kafka</artifactId>
+                <version>${spring-kafka.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.kafka</groupId>
+                <artifactId>spring-kafka-test</artifactId>
+                <version>${spring-kafka.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
