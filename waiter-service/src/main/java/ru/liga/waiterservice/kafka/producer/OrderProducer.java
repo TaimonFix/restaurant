@@ -6,6 +6,7 @@ import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Component;
 import ru.liga.waiterservice.model.dto.KitchenOrderDto;
 
+
 @Component
 @RequiredArgsConstructor
 public class OrderProducer {

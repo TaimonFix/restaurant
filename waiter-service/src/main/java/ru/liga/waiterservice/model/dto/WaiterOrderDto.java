@@ -9,6 +9,10 @@ import java.time.OffsetDateTime;
  */
 @Data
 public class WaiterOrderDto {
+
+    /**
+     * id заказа
+     */
     private Long orderNo;
 
     /**

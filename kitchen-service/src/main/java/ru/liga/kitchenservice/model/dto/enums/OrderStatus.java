@@ -11,6 +11,11 @@ public enum OrderStatus {
     NEW,
 
     /**
+     * В обработке
+     */
+    IN_PROCESSING,
+
+    /**
      * Принят
      */
     APPROVED,

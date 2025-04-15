@@ -3,7 +3,6 @@ package ru.liga.waiterservice.repository;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
-import ru.liga.waiterservice.model.dto.WaiterOrderDto;
 import ru.liga.waiterservice.model.dto.enums.OrderStatus;
 import ru.liga.waiterservice.model.entity.WaiterOrderEntity;
 

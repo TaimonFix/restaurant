@@ -4,6 +4,7 @@ import lombok.Data;
 import ru.liga.waiterservice.model.dto.enums.OrderStatus;
 
 import java.time.OffsetDateTime;
+import java.util.List;
 
 /**
  * Dto для взаимодействия с kitchen-service по API
@@ -25,4 +26,9 @@ public class KitchenOrderDto {
      * Время создания заказа
      */
     private OffsetDateTime createDttm;
+
+    /**
+     * Список блюд в заказе
+     */
+    private List<OrderPositionDto> positions;
 }

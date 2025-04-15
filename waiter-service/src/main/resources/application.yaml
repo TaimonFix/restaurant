@@ -21,6 +21,11 @@ spring:
       created-topic: ordersTopic
       properties:
         acks: 1
+        spring:
+          json:
+            add:
+              type:
+                headers: false
 feign:
   value: "kitchen-service-api"
   url: localhost:8081

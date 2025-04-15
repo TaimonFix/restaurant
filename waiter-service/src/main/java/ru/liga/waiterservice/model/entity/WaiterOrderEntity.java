@@ -20,7 +20,7 @@ public class WaiterOrderEntity {
     /**
      * Статус заказа
      */
-    private OrderStatus status;
+    private OrderStatus status = OrderStatus.NEW;
 
     /**
      * Время создания заказа

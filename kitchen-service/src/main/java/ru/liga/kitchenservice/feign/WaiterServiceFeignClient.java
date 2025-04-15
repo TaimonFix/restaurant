@@ -17,6 +17,6 @@ public interface WaiterServiceFeignClient {
     /**
      * Отправить заказ на кухню
      */
-    @PutMapping("/order/kitchen")
+    @PutMapping("/order")
     Long postOrder(@RequestBody WaiterOrderDto waiterOrderDto);
 }
