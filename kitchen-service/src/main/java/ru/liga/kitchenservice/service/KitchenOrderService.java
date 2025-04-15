@@ -1,6 +1,7 @@
 package ru.liga.kitchenservice.service;
 
 import ru.liga.kitchenservice.model.dto.KitchenOrderDto;
+import ru.liga.kitchenservice.model.dto.OrderFromWaiterDto;
 import ru.liga.kitchenservice.model.dto.WaiterOrderDto;
 
 import java.util.List;
@@ -20,6 +21,12 @@ public interface KitchenOrderService {
      * @Return id заказа
      */
     Long saveOrder(KitchenOrderDto kitchenDto);
+
+    /**
+     * Сохранить заказ в БД
+     * @Return id заказа
+     */
+    Long saveOrder(OrderFromWaiterDto orderFromWaiterDto);
 
     /**
      * Обновить статус заказа

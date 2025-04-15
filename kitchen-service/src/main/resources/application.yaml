@@ -30,7 +30,7 @@ spring:
               packages: '*'
             value:
               default:
-                type: ru.liga.kitchenservice.model.dto.KitchenOrderDto
+                type: ru.liga.kitchenservice.model.dto.OrderFromWaiterDto
 
 feign:
   value: "waiter-service-api"

@@ -23,7 +23,7 @@ public class Dish {
     private Long id;
 
     /**
-     * Стоимость
+     * Количество блюд на кухне
      */
     @NotNull
     @Column(name = "balance")
