@@ -1,16 +1,16 @@
-package ru.liga.waiterservice.model.dto;
+package ru.liga.kitchenservice.model.dto;
 
 import lombok.Data;
-import ru.liga.waiterservice.model.dto.enums.OrderStatus;
+import ru.liga.kitchenservice.model.dto.enums.OrderStatus;
 
 import java.time.OffsetDateTime;
 import java.util.List;
 
 /**
- * Dto для взаимодействия с kitchen-service по API
+ * Dto с заказом, поступившее из waiter-service
  */
 @Data
-public class KitchenOrderDto {
+public class OrderFromWaiterDto {
 
     /**
      * id заказа со стороны waiter-service
@@ -30,5 +30,7 @@ public class KitchenOrderDto {
     /**
      * Список блюд в заказе
      */
-    private List<OrderPositionDto> positions;
+    private List<DishDto> positions;
+
+
 }

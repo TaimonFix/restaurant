@@ -1,6 +1,7 @@
 package ru.liga.waiterservice.service;
 
 import ru.liga.waiterservice.model.dto.KitchenOrderDto;
+import ru.liga.waiterservice.model.dto.OrderDto;
 import ru.liga.waiterservice.model.dto.WaiterOrderDto;
 import ru.liga.waiterservice.model.dto.enums.OrderStatus;
 
@@ -32,7 +33,7 @@ public interface WaiterOrderService {
      * @param orderDto DTO заказа, который нужно сохранить
      * @return id сохраненного заказа
      */
-    Long saveOrder(WaiterOrderDto orderDto);
+    Long saveOrder(OrderDto orderDto);
 
     /**
      * Получить статус заказа
@@ -56,5 +57,5 @@ public interface WaiterOrderService {
      * @param id идентификатор заказа со стороны официантов
      * @return DTO для последующей отправки в kitchen-service
      */
-    KitchenOrderDto toKitchenOrderDto(Long id);
+//    KitchenOrderDto toKitchenOrderDto(Long id);
 }

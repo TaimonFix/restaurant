@@ -12,6 +12,26 @@ spring:
     enabled: true
     change-log: classpath:/db/changelog/changelog-master.xml
     default-schema: public
+  kafka:
+    bootstrap-servers:
+      - localhost:29092
+    producer:
+      created-topic: ordersTopic
+    consumer:
+      group-id: order-consumer
+      concurrency: 2
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.LongDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring:
+          json:
+            trusted:
+              packages: '*'
+            value:
+              default:
+                type: ru.liga.kitchenservice.model.dto.OrderFromWaiterDto
+
 feign:
   value: "waiter-service-api"
   url: localhost:8082
