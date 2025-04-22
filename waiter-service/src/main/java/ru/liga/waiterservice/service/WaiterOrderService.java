@@ -1,6 +1,5 @@
 package ru.liga.waiterservice.service;
 
-import ru.liga.waiterservice.model.dto.KitchenOrderDto;
 import ru.liga.waiterservice.model.dto.OrderDto;
 import ru.liga.waiterservice.model.dto.WaiterOrderDto;
 import ru.liga.waiterservice.model.dto.enums.OrderStatus;
@@ -8,27 +7,27 @@ import ru.liga.waiterservice.model.dto.enums.OrderStatus;
 import java.util.List;
 
 /**
- * Сервис для работы с заказами
+ * Сервис для работы с заказами.
  */
 public interface WaiterOrderService {
 
     /**
-     * Получить все заказы
+     * Получить все заказы.
      *
-     * @return список заказов
+     * @return список {@link WaiterOrderDto} заказов
      */
     List<WaiterOrderDto> getOrders();
 
     /**
-     * Получить заказ
+     * Получить заказ.
      *
      * @param id идентификатор заказа
-     * @return DTO заказа
+     * @return {@link WaiterOrderDto} DTO заказа
      */
     WaiterOrderDto getOrder(Long id);
 
     /**
-     * Добавить заказ
+     * Сохранить заказ.
      *
      * @param orderDto DTO заказа, который нужно сохранить
      * @return id сохраненного заказа
@@ -36,26 +35,18 @@ public interface WaiterOrderService {
     Long saveOrder(OrderDto orderDto);
 
     /**
-     * Получить статус заказа
+     * Получить статус заказа.
      *
      * @param id идентификатор заказа
-     * @return статус заказа
+     * @return {@link OrderStatus} статус заказа
      */
     OrderStatus getOrderStatus(Long id);
 
     /**
-     * Обновить данные о заказе
+     * Обновить данные о заказе.
      *
-     * @param orderDto DTO заказа, который нужно обновить
+     * @param waiterOrderDto DTO заказа, который нужно обновить
      * @return id обновленного заказа
      */
-    Long updateOrder(WaiterOrderDto orderDto);
-
-    /**
-     * Формирование KitchenOrderDto - новый заказ, который отправим на сторону кухни
-     *
-     * @param id идентификатор заказа со стороны официантов
-     * @return DTO для последующей отправки в kitchen-service
-     */
-//    KitchenOrderDto toKitchenOrderDto(Long id);
+    Long updateOrder(WaiterOrderDto waiterOrderDto);
 }

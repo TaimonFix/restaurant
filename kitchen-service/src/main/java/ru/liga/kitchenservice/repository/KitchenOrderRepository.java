@@ -5,7 +5,7 @@ import org.springframework.stereotype.Repository;
 import ru.liga.kitchenservice.model.entity.KitchenOrder;
 
 /**
- * Репозиторий для работы с заказами
+ * Репозиторий для работы с заказами.
  */
 @Repository
 public interface KitchenOrderRepository extends JpaRepository<KitchenOrder, Long> {

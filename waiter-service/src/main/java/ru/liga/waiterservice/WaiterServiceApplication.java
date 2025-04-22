@@ -2,17 +2,19 @@ package ru.liga.waiterservice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.openfeign.EnableFeignClients;
 
 /**
- * Сервис для работы с заказами на стороне кухни
+ * Сервис для работы с заказами на стороне официантов.
  */
-@EnableFeignClients
 @SpringBootApplication
 public class WaiterServiceApplication {
 
-    public static void main(String[] args) {
+    /**
+     * Запуск приложения waiter-service.
+     *
+     * @param args аргументы командной строки
+     */
+    public static void main(final String[] args) {
         SpringApplication.run(WaiterServiceApplication.class, args);
     }
-
 }

@@ -18,5 +18,6 @@
 		<module>dependencies-bom</module>
 		<module>waiter-service</module>
 		<module>kitchen-service</module>
+		<module>antisolid</module>
 	</modules>
 </project>
