@@ -9,21 +9,21 @@ import ru.liga.waiterservice.model.entity.WaiterOrderEntity;
 import java.util.List;
 
 /**
- * Репозиторий для работы с заказами
+ * Репозиторий для работы с заказами.
  */
 @Mapper
 @Repository
 public interface WaiterOrderRepository {
 
     /**
-     * Получить все заказы из БД
+     * Получить все заказы из БД.
      *
      * @return Список заказов
      */
     List<WaiterOrderEntity> getOrders();
 
     /**
-     * Получить заказ из БД
+     * Получить заказ из БД.
      *
      * @param id идентификатор заказа
      * @return {@link WaiterOrderEntity} заказ
@@ -31,14 +31,14 @@ public interface WaiterOrderRepository {
     WaiterOrderEntity getOrder(@Param("id") Long id);
 
     /**
-     * Сохранить заказ в БД
+     * Сохранить заказ в БД.
      *
      * @param order заказ
      */
     void saveOrder(WaiterOrderEntity order);
 
     /**
-     * Получить статус заказа из БД
+     * Получить статус заказа из БД.
      *
      * @param id идентификатор заказа
      * @return {@link OrderStatus} статус заказа
@@ -46,7 +46,7 @@ public interface WaiterOrderRepository {
     OrderStatus getStatus(@Param("id") Long id);
 
     /**
-     * Обновить данные о заказе в БД
+     * Обновить данные о заказе в БД.
      *
      * @param order заказ
      */

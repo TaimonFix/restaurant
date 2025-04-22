@@ -26,9 +26,6 @@ spring:
             add:
               type:
                 headers: false
-feign:
-  value: "kitchen-service-api"
-  url: localhost:8081
 mybatis:
   config-location: classpath:/mybatis/mybatis-config.xml
   mapper-locations: classpath:/mybatis/mappers/*.xml
@@ -40,3 +37,4 @@ management:
   endpoint:
     health:
       show-details: ALWAYS
+

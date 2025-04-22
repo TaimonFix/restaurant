@@ -7,47 +7,35 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.hibernate.Hibernate;
-
-import java.util.Objects;
+import lombok.EqualsAndHashCode;
 
 /**
- * id заказа
+ * Композитный ключ i-го поля в таблице 'order-to-dish'.
  */
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@EqualsAndHashCode
 @Embeddable
 public class OrderToDishId implements java.io.Serializable {
+
+    /**
+     * Сериализация объекта.
+     */
     private static final long serialVersionUID = 3938159353249121385L;
 
     /**
-     * id заказа
+     * id заказа.
      */
     @NotNull
     @Column(name = "kitchen_order_id")
     private Long kitchenOrderId;
 
     /**
-     * id блюда
+     * id блюда.
      */
     @NotNull
     @Column(name = "dish_id")
     private Long dishId;
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
-        OrderToDishId entity = (OrderToDishId) o;
-        return Objects.equals(this.dishId, entity.dishId) &&
-                Objects.equals(this.kitchenOrderId, entity.kitchenOrderId);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(dishId, kitchenOrderId);
-    }
-
 }

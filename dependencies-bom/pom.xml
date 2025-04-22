@@ -21,6 +21,8 @@
         <mybatis.core.version>3.0.4</mybatis.core.version>
         <feign.version>4.2.0</feign.version>
         <spring-kafka.version>3.3.4</spring-kafka.version>
+        <swagger.version>2.8.2</swagger.version>
+        <maven-chekstyle.version>3.6.0</maven-chekstyle.version>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -80,6 +82,41 @@
                 <artifactId>spring-kafka-test</artifactId>
                 <version>${spring-kafka.version}</version>
             </dependency>
+            <!-- Swagger -->
+            <dependency>
+                <groupId>org.springdoc</groupId>
+                <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+                <version>${swagger.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
+    <build>
+        <pluginManagement>
+            <plugins>
+                <!-- Maven-checkstyle -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-checkstyle-plugin</artifactId>
+                    <version>${maven-chekstyle.version}</version>
+                    <configuration>
+                        <configLocation>checkstyle.xml</configLocation>
+                        <suppressionsLocation>checkstyle-suppressions.xml</suppressionsLocation>
+                        <consoleOutput>true</consoleOutput>
+                        <logViolationsToConsole>true</logViolationsToConsole>
+                        <failsOnError>true</failsOnError>
+                        <sourceDirectories>
+                            <sourceDirectory>${project.build.sourceDirectory}</sourceDirectory>
+                        </sourceDirectories>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <goals>
+                                <goal>check</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
 </project>

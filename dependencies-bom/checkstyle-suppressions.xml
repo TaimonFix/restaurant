@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE suppressions PUBLIC
+        "-//Checkstyle//DTD SuppressionFilter Configuration 1.2//EN"
+        "https://checkstyle.org/dtds/suppressions_1_2.dtd">
+
+<suppressions>
+    <!-- Игнорировать реализацию мапперов -->
+    <suppress files=".*MapperImpl\.java" checks=".*"/>
+
+    <!-- Игнорировать отсутствие Javadoc в сервисных имплементациях -->
+    <suppress files=".*ServiceImpl\.java" checks="JavadocMethod"/>
+
+    <!-- Игнорировать package-info.java -->
+    <suppress files=".*package-info\.java" checks="JavadocPackage"/>
+</suppressions>

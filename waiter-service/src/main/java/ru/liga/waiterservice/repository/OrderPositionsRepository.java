@@ -8,14 +8,14 @@ import ru.liga.waiterservice.model.entity.OrderPositionEntity;
 import java.util.List;
 
 /**
- * Репозиторий для работы с блюдами в заказе
+ * Репозиторий для работы с блюдами в заказе.
  */
 @Repository
 @Mapper
 public interface OrderPositionsRepository {
 
     /**
-     * Получить все блюда из заказа
+     * Получить все блюда из заказа.
      *
      * @param orderNo id заказа
      * @return Список блюд {@link OrderPositionEntity}
@@ -23,9 +23,9 @@ public interface OrderPositionsRepository {
     List<OrderPositionEntity> findByOrderNo(@Param("orderNo") Long orderNo);
 
     /**
-     * Сохранить блюда из заказа в БД
+     * Сохранить блюда из заказа в БД.
      *
-     * @param orderPosition
+     * @param orderPosition сущность "Позиция блюда"
      */
     void saveOrderPosition(OrderPositionEntity orderPosition);
 }

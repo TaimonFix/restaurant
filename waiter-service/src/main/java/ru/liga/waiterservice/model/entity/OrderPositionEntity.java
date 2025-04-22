@@ -1,30 +1,42 @@
 package ru.liga.waiterservice.model.entity;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.Builder;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 /**
- * Информация о количестве заказанных блюд
+ * Информация о количестве заказанных блюд.
  */
-@Data
+@Getter
+@Setter
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+@EqualsAndHashCode
+@ToString
 public class OrderPositionEntity {
 
     /**
-     * id композиции заказ-блюдо
+     * id композиции заказ-блюдо.
      */
     private Long compositionId;
 
     /**
-     * Количество заказанных блюд
+     * Количество заказанных блюд.
      */
     private Long dishNum;
 
     /**
-     * id заказа
+     * id заказа.
      */
     private Long orderNo;
 
     /**
-     * id блюда
+     * id блюда.
      */
     private Long menuPositionId;
 }

@@ -2,45 +2,34 @@ package ru.liga.kitchenservice.service;
 
 import ru.liga.kitchenservice.model.dto.KitchenOrderDto;
 import ru.liga.kitchenservice.model.dto.OrderFromWaiterDto;
-import ru.liga.kitchenservice.model.dto.WaiterOrderDto;
-
 import java.util.List;
 
 /**
- * Сервис для работы с заказами
+ * Сервис для работы с заказами.
  */
 public interface KitchenOrderService {
 
     /**
-     * Получить все заказы
+     * Получить все заказы.
+     *
+     * @return Список {@link KitchenOrderDto} заказов
      */
     List<KitchenOrderDto> getOrders();
 
     /**
-     * Сохранить заказ в БД
-     * @Return id заказа
-     */
-    Long saveOrder(KitchenOrderDto kitchenDto);
-
-    /**
-     * Сохранить заказ в БД
-     * @Return id заказа
+     * Сохранить заказ в БД.
+     *
+     * @param orderFromWaiterDto заказ, присланный из сервиса официантов
+     * @return {@link Long} id сформированного заказа
      */
     Long saveOrder(OrderFromWaiterDto orderFromWaiterDto);
 
     /**
-     * Обновить статус заказа
+     * Обновить статус заказа.
      *
-     * @Params id идентификатор заказа
-     * @Params обновленный статус
-     *
+     * @param id     идентификатор заказа
+     * @param status обновленный статус
      * @throws IllegalArgumentException в случае, если полученный status отсутствует в enum
      */
-    KitchenOrderDto updateOrderStatus(Long id, String status);
-
-    /**
-     * Сформировать WaiterOrderDto для отправки в waiter-service
-     * @param id идентификатор заказа со стороны кухни
-     */
-    WaiterOrderDto getWaiterOrderDto(Long id);
+    void updateOrderStatus(Long id, String status);
 }

@@ -7,18 +7,21 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.kafka.config.TopicBuilder;
 
 /**
- * Конфигурация kafka
+ * Конфигурация kafka.
  */
 @Configuration
 public class KafkaConfig {
 
+    /**
+     * Название топика.
+     */
     @Value("${spring.kafka.producer.created-topic}")
     private String topic;
 
     /**
-     * Создание топика
+     * Создание топика.
      *
-     * @return топик с 1-й партицией
+     * @return {@link NewTopic} топик с 1-й партицией
      */
     @Bean
     public NewTopic createdTopic() {
